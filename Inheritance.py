@@ -68,6 +68,7 @@ class Rectangle(Polygon):
 # print('Area: {}'.format(r1.area()))
 
 
+# Multi Level Inheritance
 class Square(Rectangle):
     def __init__(self):
         Rectangle.__init__(self)
@@ -81,7 +82,36 @@ class Square(Rectangle):
         return(self.sides[0]**2)
     
 
-s1 = Square()
-s1.input_sides()
-s1.display()
-print('Area: {}'.format(s1.area()))
+# s1 = Square()
+# s1.input_sides()
+# s1.display()
+# print('Area: {}'.format(s1.area()))
+
+class A:
+    def __init__(self, a):
+        self.a = a
+    
+    def display(self):
+        print('A: {}'.format(self.a))
+
+class B:
+    def __init__(self, b):
+        self.b = b
+
+    def display(self):
+        print('B: {}'.format(self.b))
+
+# Multiple Inheritance
+class AB(A, B):
+
+    def __init__(self, a, b):
+        A.__init__(self, a)
+        B.__init__(self, b)
+
+    def display(self):
+        A.display(self)
+        B.display(self)
+
+objAB = AB(10, 20)
+objAB.display()
+
